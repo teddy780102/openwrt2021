@@ -18,7 +18,7 @@ env:
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 12 * * 4
+    - cron: 0 10 * * 4
 
 jobs:
   check:
@@ -31,6 +31,7 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
         echo "::set-output name=commitHash::$(git rev-parse HEAD)"
+
     - name: Compare Commit Hash
       id: cacheHash
       uses: actions/cache@v2
@@ -42,6 +43,7 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
+
     - name: Trigger build
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v1
@@ -52,5 +54,5 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 7
-        keep_minimum_runs: 5
+        retain_days: 1
+        keep_minimum_runs: 1
