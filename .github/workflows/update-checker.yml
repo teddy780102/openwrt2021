@@ -12,8 +12,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/kenzok8/small-package
-  REPO_BRANCH: main
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 21.02
 
 on:
   workflow_dispatch:
