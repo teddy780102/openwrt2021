@@ -1,5 +1,5 @@
 name: Package Armvirt as OpenWrt
-  uses: unifreq/openwrt_packit@master
+uses: unifreq/openwrt_packit@master
   env:
     OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
     PACKAGE_SOC: s905d
