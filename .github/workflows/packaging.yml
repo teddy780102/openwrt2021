@@ -11,7 +11,7 @@
     tag: openwrt_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
     artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
     allowUpdates: true
-    token: ${{ secrets.GH_TOKEN }}
+    token: ${{ secrets.GH_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 }}
     body: |
       This is OpenWrt firmware for Armvirt 64
       * Firmware information
