@@ -21,5 +21,3 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 #echo 'src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest' >>feeds.conf.default
 echo 'src-git small8 https://github.com/kenzok8/small-package' >>feeds.conf.default
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
-echo 'src-git main https://github.com/Lienol/openwrt-package.git;main' >>feeds.conf.default
-echo 'src-git other1 https://github.com/Lienol/openwrt-package.git;other' >>feeds.conf.default
