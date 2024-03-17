@@ -202,12 +202,12 @@ jobs:
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
-        tag: lean_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: lienol_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          This is LEAN-DOCKER OpenWrt firmware for Armvirt 64
+          This is LIENOL-DOCKER OpenWrt firmware for Armvirt 64
           * Firmware information
           Default IP: 192.168.2.2
           Default username: root
