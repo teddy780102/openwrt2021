@@ -197,7 +197,7 @@ jobs:
       uses: ophub/amlogic-s9xxx-openwrt@main
       env:
        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
-       openwrt_board: s905l-b860av21u_s905l3b-ip103h_s905l3-cm211
+       openwrt_board: s905d_s905l-b860av21u_s905l3b-ip103h_s905l3-cm211
         openwrt_kernel:6.1.y
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
