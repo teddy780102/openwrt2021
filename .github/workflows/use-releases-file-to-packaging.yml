@@ -305,7 +305,7 @@ jobs:
               exit 1
           fi
 
-          armsr_tarfile_path="openwrt/output"
+          armsr_tarfile_path="https://github.com/teddy780102/openwrt2021/releases/download/lean_armvirt_v8_05.16.0729/openwrt-armsr-armv8-generic-rootfs.tar.gz"
           [[ -d "${armsr_tarfile_path}" ]] || mkdir -p ${armsr_tarfile_path}
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
           ln -sf /builder/openwrt /home/runner/work/_actions/ophub/amlogic-s9xxx-openwrt/main/openwrt
@@ -341,7 +341,7 @@ jobs:
         if: ${{ steps.down.outputs.status }} == 'success' && !cancelled()
         uses: ophub/amlogic-s9xxx-openwrt@main
         with:
-          openwrt_path: https://github.com/teddy780102/openwrt2021/releases/download/lean_armvirt_v8_05.16.0729/openwrt-armsr-armv8-generic-rootfs.tar.gz
+          openwrt_path: openwrt/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
           openwrt_kernel: ${{ inputs.openwrt_kernel }}
           auto_kernel: ${{ inputs.auto_kernel }}
