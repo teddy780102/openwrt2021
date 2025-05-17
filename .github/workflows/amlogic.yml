@@ -198,7 +198,7 @@ jobs:
       with:
         openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
         openwrt_board: s905d_s905l-b860av21u_s905l3b-ip103h_s905l3-cm211
-        openwrt_kernel: 6.1.138_6.6.90_6.12.28
+        openwrt_kernel: 6.1.138
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
