@@ -21,7 +21,7 @@ on:
 
 env:
   REPO_URL:  https://github.com/teddy780102/lienol
-  REPO_BRANCH: '22.03'
+  REPO_BRANCH: '19.07'
   FEEDS_CONF: feeds.conf.default2
   CONFIG_FILE: ac-lienol.config
   DIY_P1_SH: diy-part1.sh
