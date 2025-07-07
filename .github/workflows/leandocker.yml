@@ -195,21 +195,23 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    
     - name: Package OpenWrt Firmware
-      uses: teddy780102/openwrt_packit@master
+      uses: unifreq/openwrt_packit@master
       env:
-       OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
-       PACKAGE_SOC: s905d
-       KERNEL_VERSION_NAME: 6.1.138_6.6.90_6.12.28
+        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        PACKAGE_SOC: s905d
+        KERNEL_VERSION_NAME: 6.1.y_6.12.y
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
-        tag: lean_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: openwrt_armsr-armv8_${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          This is LEAN-DOCKER OpenWrt firmware for Armvirt 64
+          This is OpenWrt firmware for Armv8
           * Firmware information
           Default IP: 192.168.2.2
           Default username: root
