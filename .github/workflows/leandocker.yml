@@ -198,7 +198,7 @@ jobs:
 
     
     - name: Package OpenWrt Firmware
-      uses: unifreq/openwrt_packit@master
+      uses: teddy780102/openwrt_packit@master
       env:
         OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: s905d
