@@ -3,7 +3,7 @@
 # Description: Use Releases file to packaging
 #=====================================================================================
 
-name: Use Stable Releases file to Packaging
+name: Use Releases file to Packaging
 
 on:
   repository_dispatch:
