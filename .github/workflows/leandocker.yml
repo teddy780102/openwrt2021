@@ -18,8 +18,6 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 1 * * 4
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -54,7 +52,21 @@ jobs:
         haskell: true
         large-packages: true
         swap-storage: true
-        
+    - name: 清理系统空间
+      run: |
+        sudo apt-get clean
+        sudo apt-get autoremove -y
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        sudo rm -rf /opt/microsoft
+        sudo rm -rf /opt/pipx
+        sudo rm -rf /usr/share/swift
+        echo "======================="
+        echo "清理后空间使用情况："
+        echo "======================="
+        df -h   
     - name: Checkout
       uses: actions/checkout@main
 
@@ -195,23 +207,21 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    
     - name: Package OpenWrt Firmware
       uses: unifreq/openwrt_packit@master
       env:
-        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
-        PACKAGE_SOC: s905d
-        KERNEL_VERSION_NAME: 6.1.y_6.12.y
+       OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
+       PACKAGE_SOC: s905d
+       KERNEL_VERSION_NAME: 6.1.138_6.6.90_6.12.28
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
-        tag: openwrt_armsr-armv8_${{ env.PACKAGED_OUTPUTDATE }}
+        tag: lean_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          This is OpenWrt firmware for Armv8
+          This is LEAN-DOCKER OpenWrt firmware for Armvirt 64
           * Firmware information
           Default IP: 192.168.2.2
           Default username: root
