@@ -168,7 +168,7 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          armsr_tarfile_repo="ophub/amlogic-s9xxx-openwrt"
+          armsr_tarfile_repo="teddy780102/openwrt2021"
           releases_tag_keywords="OpenWrt_lede_"
 
           armsr_tarfile_path="openwrt/output"
