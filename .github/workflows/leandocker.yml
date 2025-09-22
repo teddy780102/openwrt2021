@@ -30,7 +30,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: false
+  UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -207,6 +207,15 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload OpenWrt to Release
+      uses: ncipollo/release-action@main
+      with:
+          tag: lean_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
+          artifacts: openwrt/output/*
+          allowUpdates: true
+          removeArtifacts: false
+          replacesArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}    
     - name: Package armsr-armv8 as OpenWrt
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
