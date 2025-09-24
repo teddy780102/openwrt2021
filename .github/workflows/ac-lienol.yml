@@ -78,11 +78,11 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-              - name: Setup tmate session
-                uses: mxschmitt/action-tmate@v3
-                timeout-minutes: 120
-                with:
-                  detached: true
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      timeout-minutes: 120
+      with:
+         detached: true
 
     - name: Download package
       id: package
