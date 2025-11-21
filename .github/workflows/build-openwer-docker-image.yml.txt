@@ -14,7 +14,7 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "openwrt_main"
+        default: "lede_master"
         type: choice
         options:
           - openwrt_main
@@ -23,11 +23,11 @@ on:
       docker_img:
         description: "Set the docker image"
         required: false
-        default: "ophub/openwrt-armv8:latest"
+        default: "teddy150420/openwrt-armv8:latest"
         type: choice
         options:
-          - ophub/openwrt-armv8:latest
-          - ophub/openwrt-aarch64:latest
+          - teddy150420/openwrt-armv8:latest
+          - teddy150420/openwrt-aarch64:latest
 
 env:
   TZ: Etc/UTC
