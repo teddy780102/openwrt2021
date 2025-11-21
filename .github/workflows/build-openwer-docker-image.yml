@@ -51,14 +51,14 @@ jobs:
           openwrt_url="$(curl \
                             --header "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                             -s "https://api.github.com/repos/${{ github.repository }}/releases?per_page=20" |
-                            grep -o "OpenWrt_.*.*/.*rootfs.tar.gz" |
+                            grep -o "OpenWrt_.*${{ inputs.source_branch }}.*/.*rootfs.tar.gz" |
                             sort -urV |
                             head -n 1
                         )"
           [[ -z "${openwrt_url}" ]] && echo -e "OpenWrt file not found!" && exit 1
 
           [[ -d "openwrt" ]] || mkdir -p openwrt
-          curl -fsSL "https://github.com/${{ github.repository }}/releases/download/${openwrt_url}" -o "OpenWrt_lede_save_/openwrt-armsr-armv8-generic-rootfs.tar.gz"
+          curl -fsSL "https://github.com/${{ github.repository }}/releases/download/${openwrt_url}" -o "openwrt/openwrt-armsr-armv8-generic-rootfs.tar.gz"
           [[ "${?}" -ne "0" ]] && echo "OpenWrt file download failed." && exit 1
           echo "status=success" >> ${GITHUB_OUTPUT}
 
