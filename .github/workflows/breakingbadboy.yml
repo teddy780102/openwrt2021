@@ -4,7 +4,7 @@
 # Copyright (C) 2021 https://github.com/ophub/flippy-openwrt-actions
 #=====================================================================================
 
-name: Build OpenWrt using Unifreq scripts
+name: breakingbadboy
 
 on:
   repository_dispatch:
