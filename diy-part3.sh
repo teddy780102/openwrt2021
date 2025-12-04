@@ -15,5 +15,3 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 rm -rf  feeds/small8/luci-app-lucky
 rm -rf  feeds/small8/lucky
 git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
-
-#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
