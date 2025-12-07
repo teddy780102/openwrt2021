@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL:  https://github.com/Lienol
+  REPO_URL:  https://github.com/Lienol/openwrt
   REPO_BRANCH: '24.10'
   FEEDS_CONF: feeds.conf.default2
   CONFIG_FILE: ac-lienol.config
