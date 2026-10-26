@@ -1,5 +1,0 @@
-docker run -it --name ubuntu -v /mnt/mmcblk0p6:/work teddy150420/ubuntu:22.04 /bin/bash
-
-
-echo "alias openwrt='docker start n1_compile && docker exec -it n1_compile /bin/bash'" >> /etc/profile
-source /etc/profile
