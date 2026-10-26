@@ -1,4 +1,0 @@
-docker run -it --name ubuntu -v /mnt/mmcblk0p6:/work ubuntu:20.04 /bin/bash
-
-
-alias openwrt='docker start ubuntu && docker exec -it ubuntu /bin/bash'
