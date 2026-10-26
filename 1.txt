@@ -1,1 +1,1 @@
-docker run -it --name ubuntu-v /mnt/mmcblk0p6:/work teddy150420ubuntu:22.04 /bin/bash
+docker run -it --name ubuntu -v /mnt/mmcblk0p6:/work teddy150420/ubuntu:22.04 /bin/bash
